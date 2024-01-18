@@ -8,7 +8,6 @@ while menu != 3:
             "\n2. Gissa på ett tal mellan 1 och 60. Användaren ska få gissa fram tills de gissat rätt."
             "\n3. Avsluta programmet."
             "\n--------------------------------------------------------------------------------------\n"))
-
         match menu:
             case 1:
                 modules.delbara_heltal()
@@ -18,5 +17,5 @@ while menu != 3:
                 pass
             case default:
                 print("Du får inte vara med och leka.\n")
-    except:
+    except ValueError:
         print("Ej giltig input, testa ett heltal.\n")

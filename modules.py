@@ -1,40 +1,47 @@
 import random
 from random import randint
 
+
 def delbara_heltal():
     answer = []
-    while(True):
+    while True:
         try:
             number1 = int(input("Vilket är ditt första tal?\n"))
-            number2 = int(input("Vilket är ditt andra tal?\n"))
-
-            for i in range(1, 1601):
-                if i % number1 == 0 and i % number2 == 0:
-                    answer.append(i)
-            print(answer)
             break
-        except:
+        except ValueError:
             print("Ej giltig input, testa ett heltal.\n")
+    while True:
+        try:
+            number2 = int(input("Vilket är ditt andra tal?\n"))
+            break
+        except ValueError:
+            print("Ej giltig input, testa ett heltal.\n")
+    for i in range(1, 1601):
+        if i % number1 == 0 and i % number2 == 0:
+            answer.append(i)
+    print(answer)
+    input("Tryck på valfri tangent för att fortsätta programmet")
+
 
 def gissnings_lek():
-    guess = []
-    guesses_made = 0
-    number = random.randint(1, 60)
-    while(True):
-        try:
-            print("Jag tänker på en siffra mellan 1 och 60.\n")
-
-            while guess != number:
-                guess = int(input("Ta en gissning: \n"))
-                guesses_made += 1
-                if guess < number:
-                    print("Din gissning är för låg.\n")
-                elif guess > number:
-                    print("Din gissning är för hög.\n")
-                else:
-                    break
-            if guess == number:
-                print(f"Bra jobbat! Du gissade numret på {guesses_made} försök!\n")
+        random_number = (randint(1, 60))
+        print("\nDu valde att leka gissningsleken. Jag har nu valt ut ett heltal mellan 1 och 60.\n")
+        while True:
+            try:
+                user_guess = int(input("Skriv in din gissning här: "))
                 break
-        except:
-            print("Ej giltig input, testa ett heltal.\n")
+            except ValueError:
+                print("Felaktig inmatning. Mata in ett heltal.")
+        while user_guess != random_number:
+            if user_guess < random_number:
+                print(str(user_guess) + " är för lågt.")
+            elif int(user_guess) > random_number:
+                print(str(user_guess) + " är för högt.")
+            while True:
+                try:
+                    user_guess = int(input("Gissa igen: "))
+                    break
+                except ValueError:
+                    print("Felaktig inmatning. Mata in ett heltal.")
+        print("Rätt svar! Talet var " + str(random_number))
+        input("Tryck på valfri tangent för att fortsätta programmet")
