@@ -10,7 +10,19 @@ while menu != 3:
             "\n--------------------------------------------------------------------------------------\n"))
         match menu:
             case 1:
-                modules.delbara_heltal()
+                while True:
+                    try:
+                        number1 = int(input("Vilket är ditt första tal?\n"))
+                        break
+                    except ValueError:
+                        print("Ej giltig input, testa ett heltal.\n")
+                while True:
+                    try:
+                        number2 = int(input("Vilket är ditt andra tal?\n"))
+                        break
+                    except ValueError:
+                        print("Ej giltig input, testa ett heltal.\n")
+                modules.delbara_heltal(number1, number2)
             case 2:
                 modules.gissnings_lek()
             case 3:

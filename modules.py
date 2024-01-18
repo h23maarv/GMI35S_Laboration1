@@ -2,20 +2,8 @@ import random
 from random import randint
 
 
-def delbara_heltal():
+def delbara_heltal(number1, number2):
     answer = []
-    while True:
-        try:
-            number1 = int(input("Vilket är ditt första tal?\n"))
-            break
-        except ValueError:
-            print("Ej giltig input, testa ett heltal.\n")
-    while True:
-        try:
-            number2 = int(input("Vilket är ditt andra tal?\n"))
-            break
-        except ValueError:
-            print("Ej giltig input, testa ett heltal.\n")
     for i in range(1, 1601):
         if i % number1 == 0 and i % number2 == 0:
             answer.append(i)
